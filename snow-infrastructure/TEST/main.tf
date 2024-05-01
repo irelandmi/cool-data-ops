@@ -24,3 +24,8 @@ module "schemas" {
   database = var.database
   source = "../schemas"
 }
+
+module "tables" {
+  database = var.database
+  source = "../tables"
+}
