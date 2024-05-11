@@ -29,3 +29,12 @@ module "tables" {
   database = var.database
   source = "../tables"
 }
+
+module "storage_integrations" {
+  source = "../storage_integrations" 
+}
+
+module "stages" {
+  database = var.database
+  source = "../stages" 
+}
