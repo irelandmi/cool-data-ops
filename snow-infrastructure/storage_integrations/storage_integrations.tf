@@ -24,7 +24,7 @@ resource "snowflake_storage_integration" "integration" {
 
   enabled = true
 
-  storage_allowed_locations = [local.integration_config["datalake"]["storage_allowed_locations"]]
+  storage_allowed_locations = local.integration_config["datalake"]["storage_allowed_locations"]
   #   storage_blocked_locations = [""]
   #   storage_aws_object_acl    = "bucket-owner-full-control"
 
