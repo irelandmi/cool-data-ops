@@ -46,5 +46,5 @@ jobs:
             RETENTION_TIME=0
           fi
           snow git execute \
-            "@${REPO_NAME}/branches/${BRANCH_NAME}/deploy_parametrized_pipeline.sql" \
+            "@${REPO_NAME}/branches/${BRANCH_NAME}/git_pipeline/deploy_parametrized_pipeline.sql" \
             -D "environment='${BRANCH_NAME}'"
