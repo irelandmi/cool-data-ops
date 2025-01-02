@@ -37,6 +37,13 @@ jobs:
       - name: Fetch repository changes
         run: snow git fetch "${REPO_NAME}"
 
+      # Update Snowflake's copy of the repository
+      - name: Set Default Database
+        run: |
+          BRANCH_NAME=${{ github.ref_name }}
+          DEFAULT_DATABASE="GIT_${BRANCH_NAME}"
+          snow sql -q "USE DATABASE ${DEFAULT_DATABASE}"
+          
       # # Update Snowflake's copy of the repository
       # - name: Fetch repository changes
       #   run: snow sql -q "USE DATABASE GIT_${{ github.ref_name }}"
