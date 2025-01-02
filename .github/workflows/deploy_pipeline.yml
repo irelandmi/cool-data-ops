@@ -36,9 +36,9 @@ jobs:
       - name: Fetch repository changes
         run: snow git fetch "${REPO_NAME}"
 
-      # Update Snowflake's copy of the repository
-      - name: Fetch repository changes
-        run: snow sql -q "USE DATABASE GIT_${{ github.ref_name }}"
+      # # Update Snowflake's copy of the repository
+      # - name: Fetch repository changes
+      #   run: snow sql -q "USE DATABASE GIT_${{ github.ref_name }}"
         
       # Deploy pipeline with branch specific parameters
       - name: Deploy data pipeline to ${{ github.ref_name }}
@@ -51,5 +51,5 @@ jobs:
           fi
           snow git execute \
             "@${REPO_NAME}/branches/${BRANCH_NAME}/git_pipeline/deploy_parametrized_pipeline.sql" \
-            -D "environment='${BRANCH_NAME}' 
+            -D "environment='${BRANCH_NAME}' \
             --database GIT_${BRANCH_NAME}"
