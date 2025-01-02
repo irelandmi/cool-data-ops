@@ -49,7 +49,7 @@ jobs:
           elif [ "${BRANCH_NAME}" == "dev" ]; then
             RETENTION_TIME=0
           fi
-          snow git execute \
+          snow sql -q "USE DATABASE GIT_${{ github.ref_name }}" && snow git execute \
             "@${REPO_NAME}/branches/${BRANCH_NAME}/git_pipeline/deploy_parametrized_pipeline.sql" \
             -D "environment='${BRANCH_NAME}' \
             --database GIT_${BRANCH_NAME}"
