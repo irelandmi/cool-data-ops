@@ -55,4 +55,5 @@ jobs:
           snow git execute \
             "@${REPO_NAME}/branches/${BRANCH_NAME}/git_pipeline/steps/*" \
             --database="GIT_${BRANCH_NAME}" \
+            --schema="RAW" \
             -D "environment='${BRANCH_NAME}'"
