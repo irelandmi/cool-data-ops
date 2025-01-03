@@ -55,7 +55,7 @@ jobs:
           if [ "${BRANCH_NAME}" == "main" ]; then
             RETENTION_TIME=1
           elif [ "${BRANCH_NAME}" == "dev" ]; then
-            RETENTION_TIME=0
+            RETENTION_TIME=1
           fi
           snow git execute \
             "@${REPO_NAME}/branches/${BRANCH_NAME}/git_pipeline/steps/*" \
